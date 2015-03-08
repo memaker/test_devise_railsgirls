@@ -43,3 +43,6 @@ group :development, :test do
   gem 'spring'
 end
 
+# Use devise
+gem 'devise'
+
