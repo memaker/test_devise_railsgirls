@@ -4,7 +4,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    # @ideas = Idea.all
+    @ideas = Idea.accessible_by(current_ability)
   end
 
   # GET /ideas/1
@@ -25,6 +26,8 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @idea.user = current_user
+    authorize! :create, @idea
 
     respond_to do |format|
       if @idea.save
@@ -40,6 +43,8 @@ class IdeasController < ApplicationController
   # PATCH/PUT /ideas/1
   # PATCH/PUT /ideas/1.json
   def update
+    authorize! :update, @idea
+
     respond_to do |format|
       if @idea.update(idea_params)
         format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
@@ -54,6 +59,8 @@ class IdeasController < ApplicationController
   # DELETE /ideas/1
   # DELETE /ideas/1.json
   def destroy
+    authorize! :destroy, @idea
+
     @idea.destroy
     respond_to do |format|
       format.html { redirect_to ideas_url, notice: 'Idea was successfully destroyed.' }
