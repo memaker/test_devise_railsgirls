@@ -15,7 +15,8 @@ class IdeasController < ApplicationController
 
   # GET /ideas/new
   def new
-    @idea = Idea.new
+    # from https://www.youtube.com/watch?v=zJYuLebl-Js
+    @idea = current_user.ideas.build
   end
 
   # GET /ideas/1/edit
@@ -25,8 +26,7 @@ class IdeasController < ApplicationController
   # POST /ideas
   # POST /ideas.json
   def create
-    @idea = Idea.new(idea_params)
-    @idea.user = current_user
+    @idea = current_user.ideas.build(idea_params)
     authorize! :create, @idea
 
     respond_to do |format|

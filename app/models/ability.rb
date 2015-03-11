@@ -30,5 +30,6 @@ class Ability
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
     can :manage, Idea, user_id: user.id
+    # can [:create, :read], Idea, user_id: user.id
   end
 end
