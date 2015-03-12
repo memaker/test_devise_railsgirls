@@ -49,3 +49,8 @@ gem 'devise'
 # Use cancancan
 gem 'cancancan', '~> 1.10'
 
+# Use ActiveAdmin
+gem 'activeadmin', github: 'activeadmin'
+gem 'meta_search'
+
+
