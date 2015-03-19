@@ -49,3 +49,5 @@ gem 'devise'
 # Use cancancan
 gem 'cancancan', '~> 1.10'
 
+# Use bootstrap
+gem 'bootstrap-sass', '~> 3.3.3'
