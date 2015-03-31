@@ -1,0 +1,7 @@
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+// from https://github.com/twbs/bootstrap-sass#a-ruby-on-rails
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// from http://railscasts.com/episodes/328-twitter-bootstrap-basics
+body { padding-top: 60px; }
